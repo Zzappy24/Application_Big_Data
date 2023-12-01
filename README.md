@@ -23,3 +23,4 @@ for path_to_the_output_folder, you could put it directly in the desktop. no need
 exemple of output for windows : "C:\Users\{username}\Desktop\output"
 exemple of output for Mac : "/Users/{username}/Desktop/output"
 
+test merging
