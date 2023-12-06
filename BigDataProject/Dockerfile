@@ -15,6 +15,7 @@ Run pip install -r requirements.txt
 
 VOLUME /app/input
 VOLUME /app/output
+Volume /app/model
 
 # Run Python script when the container launches
 CMD ["python", "weather-classification-resnet152v2-acc-99.py"]

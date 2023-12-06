@@ -45,7 +45,7 @@ def load_image(folder_path):
 
 
 
-model_v3 = load_model('ResNet152V2-Weather-Classification-03.h5')
+model_v3 = load_model('./model')
 
 
 images = load_image("./input")
