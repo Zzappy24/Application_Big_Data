@@ -1,4 +1,4 @@
-# Application_Big_Data
+# Application_Big_Data SONYA, YOAN, HIBA
 
 Use a model.h5 to predict the weather based on images.
 
