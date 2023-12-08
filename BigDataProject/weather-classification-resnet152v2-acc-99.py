@@ -47,24 +47,19 @@ def load_image(folder_path):
 def download_and_load_model(url_id, output_id):
     # Check if the model folder is empty
     if not os.listdir("./model"):
-        # Ask the user if they want to download the model automatically
-        user_input = input("Do you want the script to automatically download the model.h5? (yes/no): ").lower()
+        # Download the file from Google Drive
+        gdown.download(id=url_id, output=output_id, quiet=False)
 
-        if user_input == "yes" or user_input == "y":
-            # Download the file from Google Drive
-            gdown.download(id=url_id, output=output_id, quiet=False)
-
-            # Check if the file was downloaded successfully
-            if os.path.exists(output_id):
-                # Load the model using Keras
-                model_v3 = load_model(output_id)
-                print("The model has been loaded successfully.")
-            else:
-                print("Error during the download.")
+        # Check if the file was downloaded successfully
+        if os.path.exists(output_id):
+            # Load the model using Keras
+            model_v3 = load_model(output_id)
+            print("The model has been loaded successfully.")
         else:
-            print("No download. Please put the path to link your model folder to the model folder in Docker.")
+            print("Error during the download.")
     else:
         print("The 'model' folder is not empty. No automatic download.")
+
 
 url_id = "1hzfqu8t3T50nZ0h2WN3ayYZJ335_xGcH"
 output_id = "./model/ResNet152V2-Weather-Classification-03.h5"
