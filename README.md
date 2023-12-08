@@ -1,6 +1,21 @@
 # Application_Big_Data
 
 Use a model.h5 to predict the weather based on images.
+
+# 2 solution, one with a script shell (bash)
+for Mac and linux user :
+open Docker
+Download the file script_docker_mac_linux.sh
+Copy the path 
+Open a terminal and paste : {path_of/script_docker_mac_linux.sh}
+
+You will have nothin to do, all the command line, are in the .sh
+
+results will be open directly 
+
+
+
+
  
 
 ## 1) Install Docker dekstop
