@@ -32,10 +32,6 @@ git clone https://github.com/Zzappy24/Application_Big_Data.git
 ## 4) locate your terminal in Application_Big_Data/BigDataProject :
 cd Application_Big_Data/BigDataProject
 
-## Install gdown to download the model.h5 from a google drive folder
-pip install gdown
-
-
 
 ## Build the images named big_data_image using : 
 docker build -t big_data_image .
