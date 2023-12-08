@@ -5,6 +5,7 @@ import pandas as pd
 from glob import glob
 from tqdm import tqdm
 import os
+import gdown
 
 # Data
 from tensorflow.image import resize
@@ -44,7 +45,9 @@ def load_image(folder_path):
     return images
 
 
-
+url_id = "1hzfqu8t3T50nZ0h2WN3ayYZJ335_xGcH"
+output_id = "./model/ResNet152V2-Weather-Classification-03.h5"
+gdown.download(id=url_id, output=output_id, quiet=False)
 model_v3 = load_model('./model/ResNet152V2-Weather-Classification-03.h5')
 
 
