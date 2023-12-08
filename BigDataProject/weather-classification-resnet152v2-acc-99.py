@@ -44,10 +44,28 @@ def load_image(folder_path):
             images.append(img)
     return images
 
+def download_and_load_model(url_id, output_id):
+    # Demander à l'utilisateur s'il veut télécharger automatiquement le modèle
+    user_input = input("do you want the script to automatically download the model.h5 ?  (yes/no): ").lower()
+
+    if user_input == "yes" or user_input == "y":
+        # Télécharger le fichier depuis Google Drive
+        gdown.download(id=url_id, output=output_id, quiet=False)
+
+        # Vérifier si le fichier a été téléchargé avec succès
+        if os.path.exists(output_id):
+            # Charger le modèle avec Keras
+            model_v3 = load_model(output_id)
+            print("Model load with success.")
+        else:
+            print("error during the download")
+    else:
+        print("No download, please put the path to link your folder model to the folder model in Docker")
 
 url_id = "1hzfqu8t3T50nZ0h2WN3ayYZJ335_xGcH"
 output_id = "./model/ResNet152V2-Weather-Classification-03.h5"
-gdown.download(id=url_id, output=output_id, quiet=False)
+
+download_and_load_model(url_id, output_id)
 model_v3 = load_model('./model/ResNet152V2-Weather-Classification-03.h5')
 
 
