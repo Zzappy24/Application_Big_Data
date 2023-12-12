@@ -6,7 +6,6 @@ from glob import glob
 from tqdm import tqdm
 import os
 import gdown
-from datetime import datetime  # Import datetime module
 
 # Data
 from tensorflow.image import resize
@@ -75,7 +74,6 @@ class_names = ['cloudy','foggy','rainy','shine','sunrise']
 
 liste_image=[]
 liste_pred=[]
-liste_timestamp=[]
 for i in range(len(images)):
     
     # Get image
@@ -84,14 +82,10 @@ for i in range(len(images)):
     # Make Prediction
     pred = class_names[np.argmax(model_v3.predict(image[np.newaxis,...]))]
    
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    
     liste_image.append(f"image{i}")
     liste_pred.append(pred)
-    liste_timestamp.append(timestamp)
 
-# Create DataFrame
-df = pd.DataFrame(list(zip(liste_image, liste_pred, liste_timestamp)), columns=["image", "prediction", "timestamp"])
+df = pd.DataFrame(list(zip(liste_image,liste_pred)), columns=["image", "prediction"])
 
 print(os.getcwd())
 
